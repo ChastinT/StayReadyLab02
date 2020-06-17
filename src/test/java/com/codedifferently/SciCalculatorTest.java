@@ -9,9 +9,13 @@ public class SciCalculatorTest
     /**
      * Rigorous Test :-)
      */
+
+     Calculator calc = new Calculator();
     @Test
     public void shouldAnswerWithTrue()
     {
         assertTrue( true );
     }
+
+
 }

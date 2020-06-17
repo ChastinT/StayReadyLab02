@@ -4,10 +4,17 @@ package com.codedifferently;
  * Hello world!
  *
  */
-public class SciCalculator 
+public class App 
 {
+    
     public static void main( String[] args )
     {
+    
+        
+        
+            
+          
+        
         
     }
 }
