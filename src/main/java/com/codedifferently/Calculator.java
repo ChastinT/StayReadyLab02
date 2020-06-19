@@ -3,7 +3,6 @@ package com.codedifferently;
 public class Calculator 
 {
     public double sum = 0.0;
-
     public boolean isError;
 
 
@@ -27,11 +26,8 @@ public class Calculator
     public void clear()
 
     {
-       
-     
         sum = 0.0;
-        displaySum();
-        
+        displaySum(); 
     }
 
   
