@@ -1,11 +1,17 @@
 package com.codedifferently;
 
+import java.util.Random;
+import java.util.Scanner;
+import java.io.File;
+import javax.swing.JFileChooser;
+import java.io.FileNotFoundException;
 public class SciCalculator extends Calculator
 {
-    double memory;
-    String unitMode = "Radians";
-    String displayMode = "Binary";
+    double memory; //To store the sum
+    String unitMode = "Radians"; //String to change modes between Radian and Degrees
+    String displayMode = "Binary"; //Strig to change display output
 
+    /*SciCalclators display sum method that Displays the output differently depending on displayMode*/
     public void displaySum()
     {
         String result;
@@ -37,18 +43,22 @@ public class SciCalculator extends Calculator
     }
 
     //Memory Operations
+
+    /*Method to store output to a memory*/
     public void storeMemory()
     {
         memory = sum;
 
     }
 
+    /*Reset memory value*/
     public void resetMemory()
     {
         memory = 0.0;
 
     }
     
+    /*Display memory and overwrite the sum*/
     public void displayMemory()
     {
         sum = memory;
@@ -57,6 +67,7 @@ public class SciCalculator extends Calculator
 
     //Trig Operations
 
+    /*Performs sine function with the sum on display*/
     public void sine()
     {
         if(unitMode.equals("Radians"))
@@ -73,6 +84,7 @@ public class SciCalculator extends Calculator
         }
     }
    
+    /*Performs cosine function with the sum on display*/
     public void cosine()
     {
         if(unitMode.equals("Radians"))
@@ -88,6 +100,7 @@ public class SciCalculator extends Calculator
         displaySum();
     }
     
+    /*Performs tangent function with the sum on display*/
     public void tangent()
     {
         if(unitMode.equals("Radians"))
@@ -103,6 +116,8 @@ public class SciCalculator extends Calculator
         displaySum();
     }
 
+
+    /*Performs inverse sin function with the sum on display*/
     public void inverseSin()
     {
         if(unitMode.equals("Radians"))
@@ -118,6 +133,7 @@ public class SciCalculator extends Calculator
         displaySum();
     }
    
+    /*Performs inverse cosine function with the sum on display*/
     public void inverseCos()
     {
         if(unitMode.equals("Radians"))
@@ -133,6 +149,7 @@ public class SciCalculator extends Calculator
         displaySum();
     }
     
+    /*Performs inverse tangent function with the sum on display*/
     public void inverseTan()
     {
         if(unitMode.equals("Radians"))
@@ -153,6 +170,7 @@ public class SciCalculator extends Calculator
 
     //Switch Units
 
+    /*Method to switch Unit mode between Radians and Degrees*/
     public void switchUnitsMode()
     {
         if (unitMode.equalsIgnoreCase("Radians"))
@@ -169,6 +187,7 @@ public class SciCalculator extends Calculator
         System.out.println("Unit Mode changed to: "+unitMode);
     }
 
+    /*Input method to switch Unit mode between Radians and Degrees*/
     public void switchUnitsMode(String mode)
     {
     
@@ -185,6 +204,8 @@ public class SciCalculator extends Calculator
     }
 
     // Switch Display Mode Operations
+
+    /*Method to Switch Display Mode*/
     public void switchDisplayMode()
     {
      if (displayMode.equalsIgnoreCase("Binary"))
@@ -211,6 +232,7 @@ public class SciCalculator extends Calculator
      
     }
 
+    /*Input Method to Switch Display Mode*/
     public void switchDisplayMode(String mode)
     {
     
@@ -225,6 +247,62 @@ public class SciCalculator extends Calculator
            System.out.println("Mode changed to: "+displayMode);
         }
     }
+
+    //Custom Methods
+
+    /*This method outputs a text picture from a .txt file, if you want a picture to be converted go to this site
+    https://manytools.org/hacker-tools/convert-images-to-ascii-art/ */
+    public void displayTextImage() throws FileNotFoundException
+    {
+        //Select a .txt file from a folder, for easier use put the file in your pictures folder
+        //Change the input argument inside the JFileChooser to where you put the images
+        JFileChooser chooser = new JFileChooser("C:\\Pictures");
+        chooser.showSaveDialog(null); 
+        File file = chooser.getSelectedFile();
+        
+        //String to check if file selected is the correct type, will check last of string)
+        String checkFileIsText = file.getName().substring(file.getName().indexOf("."));
+        if (checkFileIsText.equals(".txt"));
+        {
+            Scanner scan = new Scanner(file);
+            try 
+            {
+                while (scan.hasNextLine())
+                    {
+                        System.out.println(scan.nextLine());
+                    }
+                    scan.close();
+            } 
+
+            catch(NullPointerException n)
+            {
+                System.out.println("No file was selected");
+            }
+
+        }
+
+        if (!(checkFileIsText.equals(".txt"))) //To check if file is correct type
+        {
+            System.out.println("Wrong file type use .txt");
+        }
+}
+       
+
+
+    /*Method to simulate rolling a single dice, does nothing other than that*/
+    public int rollDice()
+    {
+        Random rand = new Random();
+        int result = rand.nextInt(6)+1;
+
+        System.out.println("You rolled: "+result+"\n"+"Sadly thats it");
+
+        return result;
+    }
+
+  
+
+
 
 
 }

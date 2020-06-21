@@ -1,9 +1,5 @@
 package com.codedifferently;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeTrue;
-
 import org.junit.Test;
-
 import junit.framework.Assert;
 
 

@@ -2,6 +2,9 @@ package com.codedifferently;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.FileNotFoundException;
+import java.util.IllegalFormatException;
+
 import org.junit.Test;
 
 import junit.framework.Assert;
@@ -216,7 +219,6 @@ public class SciCalculatorTest
         sciCalc.switchDisplayMode("octal");
         sciCalc.add(744);
 
-        sciCalc.switchDisplayMode("binary");
          
         
          String actual = sciCalc.displayMode;
@@ -224,13 +226,59 @@ public class SciCalculatorTest
          if (actual.equalsIgnoreCase(expected))
          {
              System.out.println("Thank god, it works");
-             //sciCalc.displaySum();
          }
          else
          {
-             System.out.println("This is fine");
+             System.out.println("More work needs to be done");
          }
  
+    }
+
+    //Testing Custom Methods
+    
+
+    @Test
+
+    public void displayImageTest() throws FileNotFoundException
+    {
+        try 
+        {
+            SciCalculator sciCalc = new SciCalculator();
+            sciCalc.displayTextImage();
+        } 
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File not found try again");
+        }
+        catch (IllegalFormatException i)
+        {
+            System.out.println("Wrong file type use .txt");
+        }
+        catch(NullPointerException n)
+        {
+            System.out.println("No file was selected");
+        }
+
+        
+  
+    }
+
+    @Test
+    public void diceTest()
+    {
+        SciCalculator sciCalc = new SciCalculator();
+
+       if (sciCalc.rollDice() > -1)
+       {
+           System.out.println("Cool it works");
+       }
+       else
+       {
+           System.out.println("Even i'm amazed it failed");
+       }
+      
+
+        
     }
 
 

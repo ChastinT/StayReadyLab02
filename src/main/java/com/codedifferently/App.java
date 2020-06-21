@@ -1,5 +1,5 @@
 package com.codedifferently;
-
+import java.io.FileNotFoundException;
 /**
  * Hello world!
  *
@@ -7,14 +7,11 @@ package com.codedifferently;
 public class App 
 {
     
-    public static void main( String[] args )
+    public static void main( String[] args ) throws FileNotFoundException
     {
-    
-        
-        
-            
-          
-        
+    SciCalculator sciCalc = new SciCalculator();
+
+    sciCalc.rollDice();
         
     }
 }
