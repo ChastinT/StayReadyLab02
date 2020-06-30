@@ -102,8 +102,8 @@ public class CalculatorTest
       //Given
       Calculator calc = new Calculator();
       //When
-      double expectedDouble = -2;
-      calc.subtract(2);
+      double expectedDouble = -2.5;
+      calc.subtract(2.5);
       double actualDouble = calc.sum;
       //Then
   

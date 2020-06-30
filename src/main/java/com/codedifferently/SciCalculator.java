@@ -236,7 +236,7 @@ public class SciCalculator extends Calculator
     public void switchDisplayMode(String mode)
     {
     
-        if (!(mode.equalsIgnoreCase("Binary")  || mode.equalsIgnoreCase("Octal") || !(mode.equalsIgnoreCase("Decimal")  || mode.equalsIgnoreCase("Hexidecimal"))))
+        if (!(mode.equalsIgnoreCase("Binary")  || mode.equalsIgnoreCase("Octal") || mode.equalsIgnoreCase("Decimal")  || mode.equalsIgnoreCase("Hexadecimal")))
         {
                 System.out.println("That's not a mode");
         }

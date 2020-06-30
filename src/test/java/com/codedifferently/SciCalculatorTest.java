@@ -45,7 +45,7 @@ public class SciCalculatorTest
         sciCalc.add(10);
         double expected = 0;
         
-        sciCalc.memory = 10;
+        sciCalc.memory = 10.5;
         sciCalc.resetMemory();
         double actual = sciCalc.memory;
         //Then
@@ -213,10 +213,10 @@ public class SciCalculatorTest
     {
          //Given
          SciCalculator sciCalc  = new SciCalculator();
-         String expected = "Octal"; 
+         String expected = "Hexadecimal"; 
          //When
         
-        sciCalc.switchDisplayMode("octal");
+        sciCalc.switchDisplayMode("hexadecimal");
         sciCalc.add(744);
 
          
